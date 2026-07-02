@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PathFind | Youth Opportunity Hub</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="page-loader" id="pageLoader">
+    <img src="assets/logo.png" alt="PathFind Logo" />
+    <p>Loading opportunities...</p>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="navbar container">
+      <button class="brand" data-page-target="home" aria-label="Go to home page">
+        <img src="assets/logo.png" alt="PathFind logo" />
+        <span>
+          <strong>PathFind</strong>
+          <small>Opportunity Hub</small>
+        </span>
+      </button>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <button class="nav-link active" data-page-target="home">Home</button>
+        <button class="nav-link" data-page-target="opportunities">Opportunities</button>
+        <button class="nav-link" data-page-target="calendar">Calendar</button>
+        <button class="nav-link" data-page-target="saved">Saved</button>
+        <button class="nav-link" data-page-target="notifications">Notifications</button>
+        <button class="nav-link subscription-nav-link" data-page-target="subscriptions">Subscriptions</button>
+        <button class="nav-link" data-page-target="admin">Admin</button>
+        <button class="nav-link" data-page-target="about">About</button>
+      </div>
+
+      <button class="primary-btn small-btn" data-page-target="login" id="accountButton">Login</button>
+    </nav>
+  </header>
+
+  <main id="app">
+    <section class="page active" id="home">
+      <div class="hero container">
+        <div class="hero-text reveal">
+          <p class="eyebrow">Scholarships • Internships • Civic Engagement</p>
+          <h1>Connecting youth to opportunities that build a stronger future.</h1>
+          <p class="hero-description">
+            PathFind gathers scholarship announcements, internships, leadership opportunities, civic engagement initiatives, and local activities from private institutions in one easy platform.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-btn" data-page-target="opportunities">Explore Opportunities</button>
+            <button class="secondary-btn" data-page-target="notifications">View Notifications</button>
+            <button class="secondary-btn subscription-entry-btn auth-hidden" data-page-target="subscriptions">View My Subscription</button>
+          </div>
+          <div class="quick-stats" aria-label="Website statistics">
+            <article>
+              <strong id="totalOpportunities">0</strong>
+              <span>Opportunities</span>
+            </article>
+            <article>
+              <strong>5</strong>
+              <span>Categories</span>
+            </article>
+            <article>
+              <strong id="openCount">0</strong>
+              <span>Open Posts</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal delay-1" aria-hidden="true">
+          <div class="floating-card card-one">
+            <span>🎓</span>
+            <p>Scholarship Alert</p>
+          </div>
+          <div class="floating-card card-two">
+            <span>💼</span>
+            <p>Internship Opening</p>
+          </div>
+          <div class="floating-card card-three">
+            <span>🤝</span>
+            <p>Civic Engagement</p>
+          </div>
+          <div class="logo-orbit">
+            <img src="assets/logo.png" alt="PathFind opportunity icon" />
+          </div>
+        </div>
+      </div>
+
+      <div class="container section-block reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Main Features</p>
+          <h2>What users can do</h2>
+          <p>Designed for private institutions that need to post verified opportunities and students who want to track important announcements.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-icon">🔎</span>
+            <h3>Browse & Search</h3>
+            <p>Search opportunities by category, keyword, location, deadline, and status.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon">🔔</span>
+            <h3>Smart Notifications</h3>
+            <p>See alerts for new opportunities, closing deadlines, and upcoming events.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon">⭐</span>
+            <h3>Save Opportunities</h3>
+            <p>Bookmark scholarships, internships, leadership events, civic opportunities, and local activities for later.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon">🛠️</span>
+            <h3>Institution Posting</h3>
+            <p>Institution admins can add, verify, and manage scholarships, internships, leadership events, civic engagement initiatives, and local activities.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon">💳</span>
+            <h3>Monthly Plans</h3>
+            <p>Private institutions can post and manage opportunities, while students can subscribe to premium tracking and alert tools.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="container section-block reveal auth-hidden" id="homeSubscriptionSection">
+        <div class="section-heading">
+          <p class="eyebrow">Monthly Subscription</p>
+          <h2>Your PathFind plan</h2>
+          <p id="homeSubscriptionSubtitle">Your role-based plan appears here after login.</p>
+        </div>
+        <div class="home-subscription-card" id="homeSubscriptionCard"></div>
+      </div>
+
+      <div class="container section-block reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Categories</p>
+          <h2>Opportunity types included</h2>
+        </div>
+        <div class="category-strip">
+          <button data-category-jump="Scholarship">🎓 Scholarships</button>
+          <button data-category-jump="Internship">💼 Internships</button>
+          <button data-category-jump="Leadership">🗣️ Leadership</button>
+          <button data-category-jump="Civic Engagement">🤝 Civic Engagement</button>
+          <button data-category-jump="Local Activity">📍 Local Activities</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="opportunities">
+      <div class="container page-top reveal">
+        <p class="eyebrow">Opportunity Board</p>
+        <h1>Find scholarships, internships, leadership, civic engagement, and local activities.</h1>
+        <p>Use the search and filters to find announcements that match your needs.</p>
+      </div>
+
+      <div class="container filters-panel reveal delay-1">
+        <div class="search-box">
+          <label for="searchInput">Search opportunity</label>
+          <input type="search" id="searchInput" placeholder="Search scholarship, internship, leadership, private institution..." />
+        </div>
+        <div class="filter-row">
+          <div>
+            <label for="categoryFilter">Category</label>
+            <select id="categoryFilter">
+              <option value="All">All Categories</option>
+            </select>
+          </div>
+          <div>
+            <label for="statusFilter">Status</label>
+            <select id="statusFilter">
+              <option value="All">All Status</option>
+              <option value="Open">Open</option>
+              <option value="Closing Soon">Closing Soon</option>
+              <option value="Closed">Closed</option>
+            </select>
+          </div>
+          <div>
+            <label for="locationFilter">Location</label>
+            <select id="locationFilter">
+              <option value="All">All Locations</option>
+            </select>
+          </div>
+          <button class="secondary-btn filter-reset" id="resetFilters">Reset</button>
+        </div>
+      </div>
+
+      <div class="container results-bar reveal delay-2">
+        <p id="resultCount">Showing opportunities</p>
+        <button class="secondary-btn" id="sortDeadlineButton">Sort by Nearest Deadline</button>
+      </div>
+
+      <div class="container opportunity-grid" id="opportunityGrid"></div>
+    </section>
+
+    <section class="page" id="calendar">
+      <div class="container page-top reveal">
+        <p class="eyebrow">Deadline & Event Calendar</p>
+        <h1>Track important dates before they pass.</h1>
+        <p>This calendar-style page lists scholarship deadlines, registration cutoffs, and upcoming activities.</p>
+      </div>
+      <div class="container calendar-layout reveal delay-1" id="calendarList"></div>
+    </section>
+
+    <section class="page" id="saved">
+      <div class="container page-top reveal">
+        <p class="eyebrow">Saved Opportunities</p>
+        <h1>Your bookmarked announcements.</h1>
+        <p>Saved items are stored on your browser using local storage for demo purposes.</p>
+      </div>
+      <div class="container opportunity-grid" id="savedGrid"></div>
+    </section>
+
+    <section class="page" id="notifications">
+      <div class="container page-top reveal">
+        <p class="eyebrow">Notifications</p>
+        <h1>Stay updated with deadline reminders and new opportunity alerts.</h1>
+        <p>These examples show what kind of notifications PathFind can provide for private institution opportunities and student users.</p>
+      </div>
+      <div class="container notification-layout reveal delay-1" id="notificationList"></div>
+    </section>
+
+
+    <section class="page" id="subscriptions">
+      <div class="container page-top reveal">
+        <p class="eyebrow">Subscriptions • Monthly</p>
+        <h1>Simple pricing for institutions and students.</h1>
+        <p>PathFind offers monthly premium plans for private institutions that post opportunities and students who want enhanced tracking tools.</p>
+      </div>
+
+      <div class="container pricing-grid reveal delay-1" id="subscriptionPlanContainer"></div>
+
+    </section>
+
+    <section class="page" id="admin">
+      <div class="container page-top reveal">
+        <p class="eyebrow">Admin Dashboard</p>
+        <h1>Post and manage opportunity announcements.</h1>
+        <p>For private institution/provider accounts under the ₱1,500/month plan. For demo use, login as admin using <strong>admin@pathfind.ph</strong> and password <strong>admin12345</strong>.</p>
+      </div>
+
+      <div class="container admin-lock" id="adminLock">
+        <h2>Admin access required</h2>
+        <p>Please login using an admin account to add announcements.</p>
+        <button class="primary-btn" data-page-target="login">Go to Login</button>
+      </div>
+
+      <div class="container admin-panel" id="adminPanel">
+        <form class="admin-form reveal" id="adminForm">
+          <h2>Add New Opportunity / Event</h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="adminTitle">Title</label>
+              <input type="text" id="adminTitle" required placeholder="Example: BrightFuture Private Scholarship 2026" />
+            </div>
+            <div class="form-group">
+              <label for="adminCategory">Category</label>
+              <select id="adminCategory" required>
+                <option value="Scholarship">Scholarship</option>
+                
+                <option value="Local Activity">Local Activity</option>
+                <option value="Leadership">Leadership</option>
+                <option value="Civic Engagement">Civic Engagement</option>
+                <option value="Internship">Internship</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="adminOrganizer">Organizer</label>
+              <input type="text" id="adminOrganizer" required placeholder="Example: BrightFuture Foundation" />
+            </div>
+            <div class="form-group">
+              <label for="adminLocation">Location</label>
+              <input type="text" id="adminLocation" required placeholder="Example: Valencia City" />
+            </div>
+            <div class="form-group">
+              <label for="adminDeadline">Deadline / Date</label>
+              <input type="date" id="adminDeadline" required />
+            </div>
+            <div class="form-group">
+              <label for="adminStatus">Status</label>
+              <select id="adminStatus" required>
+                <option value="Open">Open</option>
+                <option value="Closing Soon">Closing Soon</option>
+                <option value="Closed">Closed</option>
+              </select>
+            </div>
+            <div class="form-group full-width">
+              <label for="adminEligibility">Eligibility / Participants</label>
+              <input type="text" id="adminEligibility" required placeholder="Example: Open to youth ages 15-30" />
+            </div>
+            <div class="form-group full-width">
+              <label for="adminDescription">Description</label>
+              <textarea id="adminDescription" required placeholder="Write a short explanation about this opportunity."></textarea>
+            </div>
+          </div>
+          <button class="primary-btn" type="submit">Publish Announcement</button>
+        </form>
+
+        <div class="admin-list reveal delay-1">
+          <h2>Published Announcements</h2>
+          <div id="adminOpportunityList"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="about">
+      <div class="container about-layout reveal">
+        <div>
+          <p class="eyebrow">About PathFind</p>
+          <h1>A centralized platform for youth opportunities.</h1>
+          <p>
+            PathFind helps private institutions, NGOs, scholarship providers, and organizations share verified opportunities, while helping students discover scholarships, internships, leadership programs, civic engagement initiatives, and volunteer work.
+          </p>
+          <p>
+            Since these announcements are often scattered across different pages, websites, and social media posts, PathFind gives institutions one place to post and verify opportunities while helping students avoid missed deadlines.
+          </p>
+        </div>
+        <div class="mission-card">
+          <h2>Mission</h2>
+          <p>To help private institutions publish verified opportunities and connect students with the right paths for education, leadership, service, and community growth.</p>
+          <h2>Vision</h2>
+          <p>A future where institutions can reach the right students and every young person can easily discover opportunities that support their potential, career growth, leadership, and community participation.</p>
+        </div>
+      </div>
+
+      <div class="container contact-card reveal delay-1">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Need help or want to submit an opportunity?</h2>
+          <p>Email: pathfind@example.com</p>
+          <p>Location: Valencia City, Bukidnon</p>
+        </div>
+        <button class="primary-btn" data-page-target="admin">Submit as Admin</button>
+      </div>
+    </section>
+
+    <section class="page" id="login">
+      <div class="container login-layout reveal">
+        <div class="login-intro">
+          <p class="eyebrow">Account Access</p>
+          <h1>Login or create a demo account.</h1>
+          <p>Institutions are the primary users of PathFind through the ₱1,500/month posting plan. Students are the secondary users and can subscribe to premium tracking tools for ₱39/month.</p>
+          <div class="demo-accounts">
+            <p><strong>Admin:</strong> admin@pathfind.ph / admin12345</p>
+            <p><strong>User:</strong> user@pathfind.ph / user12345</p>
+          </div>
+        </div>
+
+        <div class="auth-card">
+          <div class="auth-tabs">
+            <button class="auth-tab active" data-auth-tab="loginForm">Login</button>
+            <button class="auth-tab" data-auth-tab="registerForm">Register</button>
+          </div>
+
+          <form class="auth-form active" id="loginForm">
+            <div class="form-group">
+              <label for="loginEmail">Email</label>
+              <input type="email" id="loginEmail" required placeholder="admin@pathfind.ph" />
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">Password</label>
+              <input type="password" id="loginPassword" required placeholder="admin12345" minlength="8" />
+            </div>
+            <button class="primary-btn full-btn" type="submit">Login</button>
+          </form>
+
+          <form class="auth-form" id="registerForm">
+            <div class="form-group">
+              <label for="registerName">Full Name</label>
+              <input type="text" id="registerName" required placeholder="Your name" />
+            </div>
+            <div class="form-group">
+              <label for="registerEmail">Email</label>
+              <input type="email" id="registerEmail" required placeholder="your.email@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="registerPassword">Password</label>
+              <input type="password" id="registerPassword" required minlength="8" placeholder="Minimum 8 characters" />
+            </div>
+            <button class="primary-btn full-btn" type="submit">Create Account</button>
+          </form>
+
+          <div class="current-user" id="currentUserBox"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <article class="details-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close details modal">×</button>
+      <div id="modalContent"></div>
+    </article>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2026 PathFind. Connecting youth to opportunities.</p>
+      <button class="footer-link" data-page-target="home">Back to top ↑</button>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

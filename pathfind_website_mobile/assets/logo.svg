@@ -1,0 +1,44 @@
+<svg width="720" height="720" viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">PathFind logo icon</title>
+  <desc id="desc">A magnifying glass, winding path, youth silhouettes, local building, leaves, and a golden star.</desc>
+  <defs>
+    <linearGradient id="blue" x1="132" y1="632" x2="584" y2="126" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#073B7A"/>
+      <stop offset="1" stop-color="#0D65D8"/>
+    </linearGradient>
+    <linearGradient id="green" x1="452" y1="610" x2="592" y2="252" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2D8E43"/>
+      <stop offset="1" stop-color="#7BC65B"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="394" y1="113" x2="494" y2="232" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD23C"/>
+      <stop offset="1" stop-color="#F4A300"/>
+    </linearGradient>
+  </defs>
+  <circle cx="379" cy="286" r="205" stroke="url(#blue)" stroke-width="38" stroke-linecap="round"/>
+  <path d="M506 440L627 561" stroke="url(#blue)" stroke-width="64" stroke-linecap="round"/>
+  <path d="M105 594C156 455 254 379 407 350C315 402 246 493 222 594H105Z" fill="url(#blue)"/>
+  <path d="M222 594C275 443 382 351 501 323C414 394 353 494 341 594H222Z" fill="url(#blue)" opacity="0.94"/>
+  <path d="M398 594C404 457 476 354 571 276C538 376 515 483 548 594H398Z" fill="url(#green)"/>
+  <path d="M125 559C194 418 315 331 474 304" stroke="white" stroke-width="18" stroke-linecap="round"/>
+  <path d="M243 567C290 440 385 349 514 295" stroke="white" stroke-width="18" stroke-linecap="round"/>
+  <path d="M147 365H186V548H147V365Z" fill="#073B7A"/>
+  <path d="M96 423H142V548H96V423Z" fill="#073B7A"/>
+  <path d="M50 479H98V548H50V479Z" fill="#073B7A"/>
+  <path d="M80 443H90V548H80V443ZM111 443H121V548H111V443ZM156 385H168V548H156V385Z" fill="white" opacity="0.9"/>
+  <path d="M28 548H143V594H28V548Z" fill="#073B7A"/>
+  <path d="M31 548H139L85 493L31 548Z" fill="#073B7A"/>
+  <path d="M79 460H91V500H79V460Z" fill="#073B7A"/>
+  <path d="M75 448H95V468H75V448Z" fill="#073B7A"/>
+  <path d="M46 381C77 386 99 403 109 432C77 428 55 412 46 381Z" fill="#56A84C"/>
+  <path d="M44 455C76 451 103 461 122 485C88 491 62 481 44 455Z" fill="#56A84C"/>
+  <path d="M88 506C118 492 146 493 173 509C142 526 114 525 88 506Z" fill="#56A84C"/>
+  <circle cx="259" cy="238" r="34" fill="#073B7A"/>
+  <path d="M212 336C220 287 238 255 263 255C289 255 308 288 313 336H212Z" fill="#073B7A"/>
+  <circle cx="334" cy="210" r="35" fill="#073B7A"/>
+  <path d="M292 330C296 277 314 232 337 232C367 232 387 278 389 330H292Z" fill="#073B7A"/>
+  <path d="M365 211C390 180 410 158 423 136" stroke="#073B7A" stroke-width="22" stroke-linecap="round"/>
+  <circle cx="425" cy="133" r="9" fill="#073B7A"/>
+  <path d="M446 88L470 153L536 176L470 199L446 264L422 199L356 176L422 153L446 88Z" fill="url(#gold)"/>
+  <path d="M446 59V90M446 262V293M328 176H359M533 176H566M371 101L392 122M500 230L522 252M522 101L500 122M392 230L371 252" stroke="#F8B400" stroke-width="10" stroke-linecap="round"/>
+</svg>
